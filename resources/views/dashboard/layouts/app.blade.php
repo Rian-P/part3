@@ -23,10 +23,19 @@
  
 </head>
 <body>
-    <nav class="bg-white shadow">
+  <div class="container-scroller">
+    
+      @include('dashboard.layouts.includes.navbar')
+   
+    <div class="container-fluid page-body-wrapper">
+   
         @include('dashboard.layouts.includes.slidebar')
-        @include('dashboard.layouts.includes.navbar')
-    </nav>
+   
+
+    <div class="main-panel">
+    </div>
+    </div>
+  </div>
 
     <main>@yield('content')</main>
 
