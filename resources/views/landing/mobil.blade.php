@@ -68,7 +68,7 @@
                             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                                 <a href="/detail/{{ $row->nama_kendaraan }}">
                                     <div class="relative overflow-hidden bg-no-repeat bg-cover">
-                                        <img class=" rounded w-46 object-cover hover:scale-110 transition duration-300 ease-in-out  object-center  "  src="{{ asset('images/mobil/' . $row->image) }}" alt="content">
+                                        <img class=" rounded w-46 object-cover hover:scale-110 transition duration-300 ease-in-out  object-center  "  src="{{asset('storage/image/kendaraan/'.$row->image)}}" alt="content">
                                     </div>
                                 </a>
                                 <div class="p-5">

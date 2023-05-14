@@ -18,16 +18,17 @@
         <section class="text-gray-600 font-inter">
             <div class="container mx-auto flex px-24 py-10 items-center justify-center flex-col">
                 <img class="h-auto max-w-sm rounded-lg shadow-none transition-shadow duration-300 ease-in-out hover:shadow-lg hover:shadow-black/30 " alt=""
-                src="{{asset('images/mobil/'.$detail_mobil->image)}}"
+                src=""
             </div>
         </section>
 
+        {{detail_kendaraan->nama_kendaraan}}
         <section class="text-gray-600 body-font">
             <div class="container px-24 pb-24 mx-auto flex flex-wrap items-center">
                 <div class="lg:w-2/2 w-full lg:pl-10 lg:py-6 bg-white mt-6 lg:mt-0">
-                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-2">{{$detail_mobil->nama_kendaraan}}</h1>
-                    <p class="leading-relaxed my-4"> <span class="font-bold">{{$detail_mobil->type}}</span> {{$detail_mobil->tahun}} </p>
-                    <p>{!!$detail_mobil->deskripsi_mobil!!}</p>
+                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-2"></h1>
+                    <p class="leading-relaxed my-4"> <span class="font-bold">uyud</span>ayusys</p>
+                    <p></p>
                 </div>
             </div>
 
@@ -134,7 +135,7 @@
                 class="block  mb-2 mr-2 text-sm font-medium text-gray-900 dark:text-white">mobil</label>
             <input type="text" id="" disabled
                 class="shadow-sm mr-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                value="{{$detail_mobil->nama_kendaraan}}" required>
+                value="" required>
         </div>
        
         <div class="mb-2 flex items-center ">
@@ -142,15 +143,15 @@
                 class="block mb-2 mr-2 text-sm font-medium text-gray-900 dark:text-white">type</label>
             <input type="text" id="" disabled
                 class="shadow-sm mb2 mr-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                value="{{$detail_mobil->type}}" required>
+                value="" required>
             <label for="harga"
                 class="block mb-2 mr-2 text-sm font-medium text-gray-900 dark:text-white">harga</label>
              <select id="countries" name="harga"
                 class="bg-gray-50 mb-2 mr-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required="required">
                 <option value="">-- pilih harga --</option>
-                <option value="{{$detail_mobil->harga_12_jam}}">{{$detail_mobil->harga_12_jam}}/12jam</option>
-                <option value="{{$detail_mobil->harga_24_jam}}">{{$detail_mobil->harga_24_jam}}/24jam</option>
+                <option value="">juuyu/12jam</option>
+                <option value="">uyu/24jam</option>
             </select>
         </div>
      

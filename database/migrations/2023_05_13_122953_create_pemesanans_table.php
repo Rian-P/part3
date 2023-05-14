@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data_pemesanan', function (Blueprint $table) {
+        Schema::create('pemesanans', function (Blueprint $table) {
             $table->id('id_pemesanan');
             $table->string('nama_pelanggan');
             $table->string('nama_kendaraan');
-            $table->string('kota_tujuan');
+            $table->string('tujuan');
             $table->string('tanggal_pengambilan');
             $table->string('tanggal_pengembalian');
             $table->string('sopir');
             $table->string('waktu_pengambilan');
             $table->string('waktu_pengembalian');
-            $table->string('foto_ktp')->nullable();
-            $table->string('bukti_tf')->nullable();
+            $table->string('foto_ktp');
+            $table->string('bukti_tf');
             $table->string('status')->nullable();
             $table->timestamps();
         });
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data_pemesanan');
+        Schema::dropIfExists('pemesanans');
     }
 };

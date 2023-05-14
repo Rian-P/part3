@@ -177,32 +177,34 @@
                 <div class="flex flex-wrap w-full mb-10">
                 
                     <div class="flex flex-wrap  font-inter">
-                        @foreach ($mobil as $row)
+                       
                         <div class="xl:w-1/4 md:w-1/2 sm:w-1/1 mb-5 ">                           
                             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                                <a href="/detail/{{ $row->nama_kendaraan }}">
+                                <a href="/detail">
                                     <div class="relative overflow-hidden bg-no-repeat bg-cover">
-                                        <img class=" rounded w-46 object-cover hover:scale-110 transition duration-300 ease-in-out  object-center  "  src="{{ asset('images/mobil/' . $row->image) }}" alt="content">
+                                        <img class=" rounded w-46 object-cover hover:scale-110 transition duration-300 ease-in-out  object-center"  src="https://img.mobilmo.com/wp-content/uploads/2017/08/Avanza.jpg" alt="content">
                                     </div>
                                 </a>
                                 <div class="p-5">
-                                    <a href="/detail/{{ $row->nama_kendaraan }}"
-                                        <h5 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 hover:text-gray-400 dark:text-white">{{ $row->nama_kendaraan }}</h5>
+                                    <a href="/detail"
+                                        <h5 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 hover:text-gray-400 dark:text-white">8sud8d8sd</h5>
                                     </a>
                                     <p class="flex items-center text-gray-600 mb-2">
                                         <span class="w-4 h-4 mr-2 inline-flex items-center justify-center text-black  flex-shrink-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M14.55 16.55L11 13V8h2v4.175l2.95 2.95ZM11 6V4h2v2Zm7 7v-2h2v2Zm-7 7v-2h2v2Zm-7-7v-2h2v2Zm8 9q-2.075 0-3.9-.788q-1.825-.787-3.175-2.137q-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175q1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138q1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175q-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-2q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4Q8.65 4 6.325 6.325Q4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"/></svg>
-                                        </span>{{ $row->harga_24_jam }} 24 Jam
+                                        </span>sfd 24 Jam
                                     </p>
                                     <p class="mb-2 font-normal text-gray-400 dark:text-gray-400">Start From</p>
                                     <div class="flex items-center justify-between">
-                                        <span class="text-lg font-bold text-gray-600 ">{{ $row->harga_12_jam }} 12 Jam</span>
+                                        <span class="text-lg font-bold text-gray-600 ">ausya 12 Jam</span>
                                                                              
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                  
+                  
+                  
                     </div>
                 </div>
             </div>

@@ -5,12 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-class Mobil extends Model
+class Kendaraan extends Model
 {
-    protected $table = 'kendaraans';
     use HasFactory;
-    protected $primaryKey = 'id_mobil';
+    protected $table = 'kendaraans';
     protected $fillable = [
         'nama_kendaraan',
         'tipe',
@@ -21,9 +19,4 @@ class Mobil extends Model
         'deskripsi',
         'image',
     ];
-
-    public function getRouteKeyName()
-    {
-        return 'nama_kendaraan';
-    }
 }

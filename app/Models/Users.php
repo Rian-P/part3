@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class sopir extends Model
+class Users extends Model
 {
-    protected $table = 'sopir';
     use HasFactory;
+    protected $table = 'users';
     protected $fillable = [
-        'nama_sopir',
-        'alamat_sopir',
-        'nomor_hp_sopir',
+        'nama',
+        'email',
+        'image',
+        'no_hp',
+        'level',
         'status',
-        'gender',
         'password',
-        
     ];
 }
