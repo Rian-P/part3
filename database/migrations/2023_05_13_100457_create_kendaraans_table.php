@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('tahun');
             $table->string('deskripsi',900);
             $table->string('image');
-            $table->string('harga_12_jam');
+            $table->string('max_penumpang');
             $table->string('harga_24_jam');
             $table->timestamps();
         });

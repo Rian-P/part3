@@ -78,11 +78,11 @@
                                     <p class="flex items-center text-gray-600 mb-2">
                                         <span class="w-4 h-4 mr-2 inline-flex items-center justify-center text-black  flex-shrink-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M14.55 16.55L11 13V8h2v4.175l2.95 2.95ZM11 6V4h2v2Zm7 7v-2h2v2Zm-7 7v-2h2v2Zm-7-7v-2h2v2Zm8 9q-2.075 0-3.9-.788q-1.825-.787-3.175-2.137q-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175q1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138q1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175q-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-2q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4Q8.65 4 6.325 6.325Q4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"/></svg>
-                                        </span>{{ $row->harga_24_jam }} 24 Jam
+                                        </span>{{ $row->harga_24_jam }} / 12 Jam
                                     </p>
                                     <p class="mb-2 font-normal text-gray-400 dark:text-gray-400">Start From</p>
                                     <div class="flex items-center justify-between">
-                                        <span class="text-lg font-bold text-gray-600 ">{{ $row->harga_12_jam }} 12 Jam</span>
+                                        <span class="text-lg font-bold text-gray-600 ">{{ $row->harga_12_jam }}/ 24 Jam</span>
                                                                              
                                     </div>
                                 </div>

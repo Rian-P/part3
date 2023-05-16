@@ -34,16 +34,23 @@ Route::get('/users', [UsersController::class, 'index']);
 Route::post('/add-users', [UsersController::class, 'store']);
 
 // KENDARAAN
-Route::get('/kendaraan', [KendaraanController::class, 'index']);
+Route::get('/kendaraan', [KendaraanController::class, 'index'])->name('Kendaraan');
 Route::get('/tambah-kendaraan', [KendaraanController::class, 'insert']);
 Route::post('/add-kendaraan', [KendaraanController::class, 'store']);
+Route::get('/hapus/{id_mobil}', [KendaraanController::class, 'hapus']);
 
-// KENDARAAN
-Route::get('/pemesanan', [PemesananController::class, 'index']);
+// PEMESANAN
+Route::get('/pemesanan', [PemesananController::class, 'index'])->name('Pemesanan');
 Route::get('/tambah-pemesanan', [PemesananController::class, 'insert']);
+Route::post('/add-pemesanan', [PemesananController::class, 'store']);
+Route::get('/approve/{id_pemesanan}',[PemesananController::class,'approve']);
 
 // JADWAL
 Route::get('/jadwal', [JadwalController::class, 'index']);
+Route::get('/print/{id_pemesanan}',[JadwalController::class,'kwitansi']);
+Route::get('/coba', [JadwalController::class, 'coba']);
+
+
 
 
 

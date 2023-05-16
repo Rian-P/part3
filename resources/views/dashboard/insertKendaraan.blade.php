@@ -34,11 +34,17 @@
                                     <label for="exampleFormControlInput1" class="form-label">Tipe</label>
                                     <select class="form-select" name="tipe" aria-label="Default select example" required>
                                       <option selected disabled value="">-- Pilih Tipe Kendaraan --</option>
-                                      <option value="Admin">Admin</option>
-                                      <option value="SOpir">Sopir</option>
-                                      <option value="User">User</option>
+                                      <option value="Manual">Manual</option>
+                                      <option value="Matic">Matic</option>
+                                      <option value="Bus">Bus</option>
                                     </select>
                                   </div>  
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Max Penumpang</label>
+                                    <input type="text" class="form-control" name="max_penumpang" id="exampleFormControlInput1" placeholder="Max Penumpang" required>
+                                  </div> 
                             </div>
                             <div class="col">
                                 <div class="mb-3">
@@ -48,12 +54,6 @@
                             </div>
                           </div> 
                           <div class="row">
-                            <div class="col-4">
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Harga 12 Jam</label>
-                                    <input type="text" class="form-control" name="harga_12_jam" id="exampleFormControlInput1" placeholder="Harga 12 Jam" required>
-                                  </div> 
-                            </div>
                           </div>
                           <div class="row">
                             <div class="col-4">

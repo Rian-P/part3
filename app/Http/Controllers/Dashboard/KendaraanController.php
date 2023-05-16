@@ -25,7 +25,7 @@ class KendaraanController extends Controller
         $kendaraan->no_kendaraan = $request->input('no_kendaraan');
         $kendaraan->tipe = $request->input('tipe');
         $kendaraan->tahun = $request->input('tahun');
-        $kendaraan->harga_12_jam = $request->input('harga_12_jam');
+        $kendaraan->max_penumpang = $request->input('max_penumpang');
         $kendaraan->harga_24_jam = $request->input('harga_24_jam');
         $kendaraan->deskripsi = $request->input('deskripsi');
         if($request->hasFile('image')){
@@ -36,8 +36,15 @@ class KendaraanController extends Controller
             $kendaraan->image = $filename;
         }
     $kendaraan->save();
+    alert()->success('Tambah','Data Berhasil Ditambahkan');
+    return redirect()->route('Kendaraan')->with('success',' Data Berhasil Ditambahkan ');
 
-    return redirect()->back()->with('status','Data Telah Ditambahkan');
+}
+
+public function hapus($id){
+    $hapus = Kendaraan::where('id_mobil', $id);
+    $hapus->delete();
+    return redirect()->back()->with('status','Data Telah Dihapus');
 }
 
 }

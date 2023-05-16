@@ -16,11 +16,13 @@ return new class extends Migration
             $table->string('nama_pelanggan');
             $table->string('nama_kendaraan');
             $table->string('tujuan');
-            $table->string('tanggal_pengambilan');
-            $table->string('tanggal_pengembalian');
+            $table->string('harga_sewa');
+            $table->string('tanggal_ambil');
+            $table->string('tanggal_kembali');
             $table->string('sopir');
-            $table->string('waktu_pengambilan');
-            $table->string('waktu_pengembalian');
+            $table->string('total_harga');
+            $table->string('waktu_ambil');
+            $table->string('waktu_kembali');
             $table->string('foto_ktp');
             $table->string('bukti_tf');
             $table->string('status')->nullable();

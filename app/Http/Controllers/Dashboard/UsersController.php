@@ -30,7 +30,7 @@ class UsersController extends Controller
             $users->image = $filename;
         }
     $users->save();
-
+    alert()->success('Tambah','Data Berhasil Ditambahkan');
     return redirect()->back()->with('status','Data Telah Ditambahkan');
     }
 

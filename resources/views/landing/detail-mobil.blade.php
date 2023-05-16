@@ -18,17 +18,17 @@
         <section class="text-gray-600 font-inter">
             <div class="container mx-auto flex px-24 py-10 items-center justify-center flex-col">
                 <img class="h-auto max-w-sm rounded-lg shadow-none transition-shadow duration-300 ease-in-out hover:shadow-lg hover:shadow-black/30 " alt=""
-                src=""
+                src="{{asset('storage/image/kendaraan/'.$detail_kendaraan->image)}}"
             </div>
         </section>
 
-        {{detail_kendaraan->nama_kendaraan}}
+        
         <section class="text-gray-600 body-font">
             <div class="container px-24 pb-24 mx-auto flex flex-wrap items-center">
                 <div class="lg:w-2/2 w-full lg:pl-10 lg:py-6 bg-white mt-6 lg:mt-0">
-                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-2"></h1>
-                    <p class="leading-relaxed my-4"> <span class="font-bold">uyud</span>ayusys</p>
-                    <p></p>
+                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-2">{{$detail_kendaraan->nama_kendaraan}}</h1>
+                    <p class="leading-relaxed my-4"> <span class="font-bold">{{$detail_kendaraan->max_penumpang}}</span>Penumpang</p>
+                    <p>{!!$detail_kendaraan->deskripsi!!}</p>
                 </div>
             </div>
 

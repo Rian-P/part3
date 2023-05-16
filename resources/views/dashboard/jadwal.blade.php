@@ -8,38 +8,46 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4>Jadwal</h4>
-                    <div id='calendar'></div>
+                     <div class="table-responsive">
+                      <table class="table table-striped table-borderless">
+                        <thead>
+                          <tr>
+                            <th>Nama</th>
+                            <th>Kendaraan</th>
+                            <th>Sopir</th>
+                            <th>Tanggal Ambil</th>
+                            <th>Tanggal Kembali</th>
+                            <th>Waktu</th>
+                            <th>Total Harga</th>
+                            <th>Action</th>
+                          </tr>  
+                        </thead>
+                        <tbody>
+                        @foreach($jadwal as $jadwal)
+                          <tr>
+                            <td>
+                              {{$jadwal->nama_pelanggan}}
+                            </td>
+                            <td> {{$jadwal->nama_kendaraan}}</td>
+                            <td class="font-weight-bold">{{$jadwal->sopir}}</td>
+                            <td>{{$jadwal->tanggal_ambil}}</td>
+                            <td>{{$jadwal->tanggal_kembali}}</td>
+                            <td>{{$jadwal->waktu_kembali}}</td>
+                            <td class="font-weight-medium"><div class="badge badge-success">Rp.{{$jadwal->total_harga}}</div></td>  
+                            <td>
+                              <a href="/print/{{$jadwal->id_pemesanan}}" class="btn btn-primary btn-sm"><i class="fa-solid fa-file-pdf"></i></a>
+                            </td>   
+                          </tr>
+                        @endforeach
+                        </tbody>
+                      </table>
+                    </div>
              </div>
          </div>
      </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-      $('#calendar').fullCalendar({
-        defaultView: 'month',
-        header: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'month,agendaWeek,agendaDay'
-        },
-        events: [
-          {
-            title: 'Makan Siang',
-            start: '2023-05-07T12:30:00',
-            end: '2023-05-07T13:30:00'
-          },
-          {
-            title: 'Pertemuan dengan Klien',
-            start: '2023-05-12T14:00:00',
-            end: '2023-05-12T15:30:00'
-          },
-          // tambahkan acara lain di sini
-        ]
-      });
-    });
-  </script>
+
   
 
            

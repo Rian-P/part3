@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('sweetalert::alert')
+
  <div class="main-panel">
           <div class="content-wrapper">
           
@@ -19,8 +21,8 @@
                             <th>No Kendaraan</th>
                             <th>Nama Kendaraan</th>
                             <th>Tipe</th>
-                            <th>Harga 12 Jam</th>
                             <th>Harga 24 Jam</th>
+                            <th>Aksi</th>       
                           </tr>  
                         </thead>
                         <tbody>
@@ -32,8 +34,11 @@
                             <td class="font-weight-bold">{{$kendaraan->nama_kendaraan}}</td>
                             <td>{{$kendaraan->no_kendaraan}}</td>
                             <td>{{$kendaraan->tipe}}</td>
-                            <td>{{$kendaraan->harga_12_jam}}</td>
                             <td>{{$kendaraan->harga_24_jam}}</td>
+                            <td>
+                             <a href="" class="btn btn-warning btn-sm" ><i class="fa-sharp fa-regular fa-pen-to-square"></i></a>
+                             <a class="btn btn-danger btn-sm hapus" data-id="{{$kendaraan->id_mobil}}" data-nama="{{$kendaraan->nama_kendaraan}}"  ><i class="fa-solid fa-trash-can"></i></a>
+                            </td>
                           </tr>
                         @endforeach
                           
@@ -44,6 +49,31 @@
                 </div>
               </div>
             </div>
+
+            <script>
+                            $('.hapus').click(function(){
+                                var kendaraanid = $(this).attr('data-id');
+                                var nama = $(this).attr('data-nama');
+                                swal({
+                                    title: "Apa kamu yakin ?",
+                                    text: "Kamu akan setujui penyewaan atas nama "+nama+" ",
+                                    icon: "warning",
+                                    buttons: true,
+                                    dangerMode: true,
+                                    })
+                                    .then((willUpprove) => {
+                                    if (willUpprove) {
+                                        window.location = "/hapus/"+kendaraanid+""
+                                        swal("Data berhasil dihapus", {
+                                        icon: "success",
+                                        });
+                                    } else {
+                                        swal("Data batal dihapus");
+                                    }
+                                    });
+                            });
+                            
+                        </script>
 
           
            

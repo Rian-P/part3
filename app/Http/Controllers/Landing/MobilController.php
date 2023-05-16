@@ -16,11 +16,11 @@ class MobilController extends Controller
       return view('landing.mobil',compact('mobil'));
    }
 
-   public function mobilDetail(mobil $mobil)
-    {
-        $detail_mobil = $mobil;
-        return view('landing.detail-mobil', compact('detail_mobil'));
-    }
+   public function mobilDetail(Mobil $mobil)
+{
+    $detail_kendaraan = $mobil;
+    return view('landing.detail-mobil', compact('detail_kendaraan'));
+}
    
    
 }
