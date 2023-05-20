@@ -5,6 +5,8 @@ use App\http\Controllers\landing\HomeController;
 use App\http\Controllers\landing\MobilController;
 use App\http\Controllers\landing\DetailMobilController;
 use App\http\Controllers\landing\TransaksiController;
+use App\http\Controllers\LoginController;
+use App\http\Controllers\landing\RegisterController;
 
 
 use App\http\Controllers\Dashboard\DashboardController;
@@ -18,14 +20,23 @@ use App\http\Controllers\Dashboard\JadwalController;
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/daftar-kendaraan', [MobilController::class, 'index'])->name('mobil.index');
 Route::get('/daftar-mobil', [DetailMobilController::class, 'index'])->name('detail-mobil.index');
-Route::get('/detail/{mobil}', [MobilController::class, 'mobilDetail']);
+
+Route::get('/detail/{id}/{nama_kendaran}', [MobilController::class, 'show']);
+Route::post('/booking', [MobilController::class, 'store']);
+Route::get('/detail/{id}/{nama_kendaran}', [HomeController::class, 'show']);
 Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
+
+#login dan register
+Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+Route::post('/registrasi', [RegisterController::class, 'store']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/sign-in', [LoginController::class, 'login']);
+Route::get('/logout', [LoginController::class, 'logout']);
 
 
 
 
 #DASHBOARD PAGE
-
 // HOME
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('.index');
 
@@ -40,7 +51,7 @@ Route::post('/add-kendaraan', [KendaraanController::class, 'store']);
 Route::get('/hapus/{id_mobil}', [KendaraanController::class, 'hapus']);
 
 // PEMESANAN
-Route::get('/pemesanan', [PemesananController::class, 'index'])->name('Pemesanan');
+Route::get('/pemesanan', [PemesananController::class, 'index'])->name('order');
 Route::get('/tambah-pemesanan', [PemesananController::class, 'insert']);
 Route::post('/add-pemesanan', [PemesananController::class, 'store']);
 Route::get('/approve/{id_pemesanan}',[PemesananController::class,'approve']);
@@ -49,6 +60,8 @@ Route::get('/approve/{id_pemesanan}',[PemesananController::class,'approve']);
 Route::get('/jadwal', [JadwalController::class, 'index']);
 Route::get('/print/{id_pemesanan}',[JadwalController::class,'kwitansi']);
 Route::get('/coba', [JadwalController::class, 'coba']);
+
+
 
 
 

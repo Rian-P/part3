@@ -12,4 +12,6 @@ class DetailMobilController extends Controller
     {
         return view('landing.detail-mobil');
     }
+
+    
 }

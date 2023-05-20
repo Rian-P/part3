@@ -1,22 +1,26 @@
 <?php
 
 namespace App\Http\Controllers\Landing;
-use App\Models\Mobil;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Kendaraan;
 
 class HomeController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-         return view('landing.home');    
+        $kendaraan = Kendaraan::inRandomOrder()->take(6)->get(); 
+        return view('landing.home',compact('kendaraan'));
     }
     
-    public function mobilDetail(mobil $mobil)
+    
+    public function show($id)
     {
-       $detail_mobil = $mobil;
-       return view('landing.detail-mobil',compact('detail_mobil'));
+        $detail_kendaraan = Kendaraan::findOrFail($id);
+        return view('landing.detail-mobil', compact('detail_kendaraan'));
     }
+    
    
 
 }

@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kendaraan extends Model
 {
-    use HasFactory;
     protected $table = 'kendaraans';
+    use HasFactory;
+    protected $primaryKey = 'id_mobil';
     protected $fillable = [
         'nama_kendaraan',
         'tipe',
@@ -19,4 +20,9 @@ class Kendaraan extends Model
         'deskripsi',
         'image',
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'nama_kendaraan';
+    }
 }

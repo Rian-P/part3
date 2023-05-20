@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('waktu_ambil');
             $table->string('waktu_kembali');
             $table->string('foto_ktp');
-            $table->string('bukti_tf');
+            $table->string('bukti_tf')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });

@@ -43,10 +43,15 @@
                               </button>
                             </td>
                             <td>
-                             <!-- Button trigger modal -->
+                              @if($pemesanan->bukti_tf == null)
+                                <div class="badge badge-danger">Belum Melakukan Pembayaran</div>
+                              @else
+                              <!-- Button trigger modal -->
                               <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#TransferModal{{$pemesanan->id_pemesanan}}">
-                               <i class="fa-solid fa-file-invoice-dollar"></i>
-                              </button>    
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                               </button> 
+                              @endif
+                                
                             </td>
                             <td class="font-weight-medium">
                             @if($pemesanan->status == null)
@@ -134,13 +139,7 @@
 
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
-          <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
-            </div>
-          </footer>
-          <!-- partial -->
+        
         </div>
         
 @endsection

@@ -51,7 +51,7 @@ class PemesananController extends Controller
         }
     $pemesanan->save();
     alert()->success('Tambah','Data Berhasil Ditambahkan');
-    return redirect()->route('Pemesanan')->back()->with('status','Data Telah Ditambahkan');
+    return redirect()->route('order')->with('success',' Data Berhasil Ditambahkan ');
 }
 
 public function approve($id){

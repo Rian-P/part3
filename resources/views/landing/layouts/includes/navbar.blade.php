@@ -17,6 +17,7 @@
     <nav class="bg-gray-100 border-gray-200 pt-6 dark:bg-gray-900">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
             <a  class="flex items-center">
+                
                 <img src="images/icon/iconbg.png" class="h-6 mr-3 sm:h-9" alt="prapatan jaya" />
                 <span class="self-center text-xl font-bold whitespace-nowrap dark:text-white">Prapatan Jaya Trans</span>
             </a>
@@ -41,15 +42,16 @@
                             </li>
                             <li>
                                 <a href="{{ route('mobil.index') }}"
-                                    class="text-gray-900 dark:text-white hover:underline">Layanan sewa</a>
+                                    class="text-gray-900 dark:text-white hover:underline">Layanan Sewa</a>
                             </li>
                             <li>
                                 <a href="{{ route('transaksi.index') }}"
-                                    class="text-gray-900 dark:text-white hover:underline">transaksi</a>
+                                    class="text-gray-900 dark:text-white hover:underline">Transaksi</a>
                             </li>
+                            
                             <li>
                                 <button @click="open = !open" class="text-gray-900 dark:text-white hover:underline">
-                                    <span>tentang kami</span>
+                                    <span>Tentang Kami</span>
                                     <svg fill="currentColor" viewBox="0 0 20 20"
                                         :class="{ 'rotate-180': open, 'rotate-0': !open }"
                                         class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
@@ -68,7 +70,7 @@
                                     <div class="px-2 pt-2 pb-4 bg-white rounded-md shadow-lg dark-mode:bg-gray-700">
                                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                             <a class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                                                href="#">
+                                        >
                                                 <div class="bg-teal-500 text-white rounded-lg p-3">
                                                     <svg fill="none" stroke="currentColor" stroke-linecap="round"
                                                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
@@ -121,14 +123,11 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </li>
-
-
                         </ul>
                     </div>
                 </div>
-                <a href=""
+                <a href="{{ route('login') }}"
                     class="mr-6 text-sm font-medium text-gray-500 dark:text-white hover:underline">Login</a>
                 <button type="button"
                     class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -166,6 +165,8 @@
 
         </div>
     </nav>
+    
+    
 </body>
 
 </html>

@@ -14,13 +14,15 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('email');
             $table->string('no_hp');
             $table->string('level');
             $table->string('status');
             $table->string('password');
             $table->timestamps();
+            $table->rememberToken();
+            $table->softDeletes($column = 'deleted_at', $precision =0);
         });
     }
 
