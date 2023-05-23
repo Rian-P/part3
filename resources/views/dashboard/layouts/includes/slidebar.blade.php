@@ -19,12 +19,14 @@
             <span class="menu-title">Dashboard</span>
           </a>
         </li>
+        @if(auth()->user()->level=="Super Admin")
         <li class="nav-item">
           <a class="nav-link" href="/users">
             <i class="icon-head menu-icon"></i>
             <span class="menu-title">Users</span>
           </a>
         </li>
+        @endif
         <li class="nav-item">
           <a class="nav-link" href="/kendaraan">
             <i class="icon-columns menu-icon"></i>

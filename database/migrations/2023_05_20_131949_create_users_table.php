@@ -15,14 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('image')->nullable();
-            $table->string('email');
             $table->string('no_hp');
             $table->string('level');
             $table->string('status');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->timestamps();
             $table->rememberToken();
-            $table->softDeletes($column = 'deleted_at', $precision =0);
+            $table->timestamps();
         });
     }
 

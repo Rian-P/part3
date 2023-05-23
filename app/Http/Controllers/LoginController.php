@@ -13,28 +13,31 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
-        $credentials = $request->validate([
-            'email' => ['required'],
-            'password' => ['required'],
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
         ]);
-        $auth = Auth::attempt($credentials);
-        $request->session()->regenerate();
-            $user = Auth::User();
-            return redirect('/dashboard');
-        if ($auth) {
+
+        $data = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
+        if(Auth::attempt($data)){
             $request->session()->regenerate();
-            $user = Auth::User();
-            return redirect()->intended('dashboard');
-        }else {
-            $data['msg']='Username atau Password anda salah';
-            return redirect('/login', $data);
+            return redirect('/dashboard');
+        }else{
+            Session::flash('error', 'Email atau Password Salah');
+            return redirect('/login'); 
         }
     }
 
-    public function logout(){
+     public function logout(Request $request){
         Auth::logout();
-        return redirect('/login');
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect('/login');         
     }
-
+    
 
 }

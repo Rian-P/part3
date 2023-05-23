@@ -26,7 +26,7 @@ Route::post('/booking', [MobilController::class, 'store']);
 Route::get('/detail/{id}/{nama_kendaran}', [HomeController::class, 'show']);
 Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
 
-#login dan register
+#Login dan Register
 Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
 Route::post('/registrasi', [RegisterController::class, 'store']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -36,30 +36,40 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 
 
-#DASHBOARD PAGE
-// HOME
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('.index');
+Route::group(['middleware' => ['auth','ceklevel:Admin,Super Admin']], function(){
 
-// USERS
-Route::get('/users', [UsersController::class, 'index']);
-Route::post('/add-users', [UsersController::class, 'store']);
+    //DASHBOARD
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('.index');
 
-// KENDARAAN
-Route::get('/kendaraan', [KendaraanController::class, 'index'])->name('Kendaraan');
-Route::get('/tambah-kendaraan', [KendaraanController::class, 'insert']);
-Route::post('/add-kendaraan', [KendaraanController::class, 'store']);
-Route::get('/hapus/{id_mobil}', [KendaraanController::class, 'hapus']);
+    // KENDARAAN
+    Route::get('/kendaraan', [KendaraanController::class, 'index'])->name('Kendaraan');
+    Route::get('/tambah-kendaraan', [KendaraanController::class, 'insert']);
+    Route::post('/add-kendaraan', [KendaraanController::class, 'store']);
+    Route::get('/hapus/{id_mobil}', [KendaraanController::class, 'hapus']);
 
-// PEMESANAN
-Route::get('/pemesanan', [PemesananController::class, 'index'])->name('order');
-Route::get('/tambah-pemesanan', [PemesananController::class, 'insert']);
-Route::post('/add-pemesanan', [PemesananController::class, 'store']);
-Route::get('/approve/{id_pemesanan}',[PemesananController::class,'approve']);
+    // PEMESANAN
+    Route::get('/pemesanan', [PemesananController::class, 'index'])->name('order');
+    Route::get('/tambah-pemesanan', [PemesananController::class, 'insert']);
+    Route::post('/add-pemesanan', [PemesananController::class, 'store']);
+    Route::get('/approve/{id_pemesanan}',[PemesananController::class,'approve']);
 
-// JADWAL
-Route::get('/jadwal', [JadwalController::class, 'index']);
-Route::get('/print/{id_pemesanan}',[JadwalController::class,'kwitansi']);
-Route::get('/coba', [JadwalController::class, 'coba']);
+    // JADWAL
+    Route::get('/jadwal', [JadwalController::class, 'index']);
+    Route::get('/print/{id_pemesanan}',[JadwalController::class,'kwitansi']);
+
+});
+
+
+Route::group(['middleware' => ['auth','ceklevel:Super Admin']], function(){
+    // USERS
+    Route::get('/users', [UsersController::class, 'index']);
+    Route::post('/add-users', [UsersController::class, 'store']);
+
+});
+
+
+
+
 
 
 

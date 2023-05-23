@@ -20,7 +20,7 @@
     <header class="max-w-lg mx-auto">
         <a href="#">
             <img class="object-none object-top  w-full h-24" src="images/icon/iconbg.png">
-            <h1 class="text-4xl font-bold text-white text-center ">login</h1>
+            <h1 class="text-4xl font-bold text-white text-center ">Login</h1>
         </a>
     </header>
 

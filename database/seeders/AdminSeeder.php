@@ -14,10 +14,20 @@ class AdminSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
+            'nama' => 'Super Admin',
+            'image' => 'None',
+            'level' => 'Super Admin',
+            'status' => 'Aktif',
+            'password' => bcrypt("superadmin"),
+            'no_hp' => '087733798090',
+            'email' => 'superadmin@gmail.com',
+        ]);
+        DB::table('users')->insert([
             'nama' => 'admin',
+            'image' => 'None',
             'level' => 'Admin',
             'status' => 'Aktif',
-            'password' => 'admin',
+            'password' => bcrypt("admin"),
             'no_hp' => '087733',
             'email' => 'admin@gmail.com',
         ]);
