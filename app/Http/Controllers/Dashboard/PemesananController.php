@@ -12,8 +12,12 @@ class PemesananController extends Controller
 {
     public function index()
     {
+        $totalPrice = Pemesanan::where('status','=', 1)
+                     ->sum('total_harga');
+        $formattedPrice = number_format($totalPrice, 2, ',', '.');
+
         $pemesanan = Pemesanan::all();
-        return view('dashboard.pemesanan',compact('pemesanan'));
+        return view('dashboard.pemesanan',compact('pemesanan','formattedPrice'));
     }
     public function insert()
     {

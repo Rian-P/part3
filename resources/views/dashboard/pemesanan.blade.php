@@ -6,7 +6,15 @@
 
  <div class="main-panel">
           <div class="content-wrapper">
-          
+           <div class="row">
+              <div class="col-md mb-4 mb-lg-0 stretch-card transparent pb-3">
+                <div class="card card-light-blue">
+                  <div class="card-body">
+                     <h3 class="mb-4"><i class="fa-solid fa-info mr-2"></i>Total Biaya Pemesanan</h3>
+                      <p class="fs-30 mb-2">Rp. {{$formattedPrice}}</p>
+                  </div>
+                </div>
+            </div>    
             <div class="row">
               <div class="col-md-12 grid-margin stretch-card">
                  <div class="card">
