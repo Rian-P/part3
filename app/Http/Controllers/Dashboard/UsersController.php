@@ -21,7 +21,7 @@ class UsersController extends Controller
         $users->no_hp = $request->input('no_hp');
         $users->level = $request->input('level');
         $users->status = $request->input('status');
-        $users->password = $request->input('password');
+        $users->password = bcrypt($request->input('password'));
         if($request->hasFile('image')){
             $file = $request->file('image');
             $extention = $file->getClientOriginalExtension();

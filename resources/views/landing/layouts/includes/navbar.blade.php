@@ -44,10 +44,14 @@
                                 <a href="{{ route('mobil.index') }}"
                                     class="text-gray-900 dark:text-white hover:underline">Layanan Sewa</a>
                             </li>
-                            <li>
-                                <a href="{{ route('transaksi.index') }}"
+                            @if (Auth::check())
+                               <li>
+                                    <a href="{{ route('transaksi.index') }}"
                                     class="text-gray-900 dark:text-white hover:underline">Transaksi</a>
-                            </li>
+                                </li>
+                            @else
+                                
+                            @endif
                             
                             <li>
                                 <button @click="open = !open" class="text-gray-900 dark:text-white hover:underline">
@@ -127,8 +131,13 @@
                         </ul>
                     </div>
                 </div>
-                <a href="{{ route('login') }}"
+                @if (Auth::check())
+                    <p class="nama-user pr-4">{{ Auth::user()->nama }}</p>
+                @else
+                    <a href="{{ route('login') }}"
                     class="mr-6 text-sm font-medium text-gray-500 dark:text-white hover:underline">Login</a>
+                @endif
+
                 <button type="button"
                     class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
@@ -139,22 +148,22 @@
                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
                     id="user-dropdown">
                     <div class="px-4 py-3">
-                        <span class="block text-sm text-gray-900 dark:text-white">HAPPYY</span>
+                     @if (Auth::check())
+                        <span class="block text-sm text-gray-900 dark:text-white">{{ Auth::user()->nama }}</span>
                         <span
-                            class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">happy@gmail.com</span>
+                            class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">{{ Auth::user()->email }}</span>
+                    @else
+                    @endif
                     </div>
+                    
                     <ul class="py-1" aria-labelledby="user-menu-button">
-                        <li>
-                            <a href=""
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
-                        </li>
                         <li>
                             <a href=""
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Pesanan
                                 Saya</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="/logout-user"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
                                 out</a>
                         </li>

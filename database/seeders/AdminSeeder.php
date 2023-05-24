@@ -31,5 +31,14 @@ class AdminSeeder extends Seeder
             'no_hp' => '087733',
             'email' => 'admin@gmail.com',
         ]);
+        DB::table('users')->insert([
+            'nama' => 'Rian',
+            'image' => 'None',
+            'level' => 'User',
+            'status' => 'Aktif',
+            'password' => bcrypt("rian"),
+            'no_hp' => '087733',
+            'email' => 'rian@gmail.com',
+        ]);
     }
 }

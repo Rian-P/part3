@@ -52,8 +52,14 @@
                         @csrf
                         <div class="mb-4">
                           <label for="nama_pelanggan" class="block text-gray-700 font-bold text-lg mb-2">Nama</label>
-                          <input type="text" name="nama_pelanggan" id="nama_pelanggan" placeholder="Nama" required
+                           @if (Auth::check())
+                           <input type="text" name="nama_pelanggan" id="nama_pelanggan" placeholder="Nama" value="{{ Auth::user()->nama }}" required
                             class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg">
+                           @else
+                           <input type="text" name="nama_pelanggan" id="nama_pelanggan" placeholder="Nama" required
+                            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg">
+                           @endif
+                          
                         </div>
                         <div class="mb-4">
                           <label for="tujuan" class="block text-gray-700 font-bold text-lg mb-2">Tujuan</label>

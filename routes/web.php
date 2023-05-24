@@ -16,6 +16,10 @@ use App\http\Controllers\Dashboard\PemesananController;
 use App\http\Controllers\Dashboard\JadwalController;
 
 
+Route::group(['middleware' => ['auth','ceklevel:User']], function(){
+    Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
+});
+
 #LANDING PAGE
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/daftar-kendaraan', [MobilController::class, 'index'])->name('mobil.index');
@@ -24,7 +28,7 @@ Route::get('/daftar-mobil', [DetailMobilController::class, 'index'])->name('deta
 Route::get('/detail/{id}/{nama_kendaran}', [MobilController::class, 'show']);
 Route::post('/booking', [MobilController::class, 'store']);
 Route::get('/detail/{id}/{nama_kendaran}', [HomeController::class, 'show']);
-Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
+
 
 #Login dan Register
 Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
@@ -32,6 +36,7 @@ Route::post('/registrasi', [RegisterController::class, 'store']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/sign-in', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout']);
+Route::get('/logout-user', [LoginController::class, 'logoutUser']);
 
 
 
