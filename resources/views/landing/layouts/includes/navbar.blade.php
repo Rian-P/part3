@@ -44,6 +44,7 @@
                                 <a href="{{ route('mobil.index') }}"
                                     class="text-gray-900 dark:text-white hover:underline">Layanan Sewa</a>
                             </li>
+                            
                             @if (Auth::check())
                                <li>
                                     <a href="{{ route('transaksi.index') }}"

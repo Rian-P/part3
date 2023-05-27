@@ -16,6 +16,7 @@
     </head>
 
     <body class="#">
+        {{-- menampilkan slide  --}}
         <section>
 
             <div id="default-carousel" class="relative" data-carousel="slide" class="h-auto max-w-full ">
@@ -88,9 +89,6 @@
                 </button>
             </div>
         </section>
-
-
-
         <!-- hero -->
         <section class="text-black-600 body-font my-16 mx-auto px-5 md:max-w-6xl">
             <div class="container border md:max-w-6xl bg-stone-100 mx-10 flex px-5 py-10  md:flex-row flex-col ">
@@ -113,7 +111,7 @@
                     </p>
                     <p class="text-gray-700 text-base mb-8">anda dengan pelayanan terbaik dan Profesional</p>
 
-                    <form class="flex items-center  ">
+                    <form class="flex items-center" action="{{ route('home.search') }}" method="GET">
 
                         <div class="relative ">
                             <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none ">
@@ -204,33 +202,30 @@
 
         <section class="text-gray-600 body-font">
             <div class="container px-5 py-24 mx-auto">
-                <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                @php
+             $kendaraan  = $kendaraan->random(3);
+            @endphp
+                <div class="flex flex-wrap justify-center sm:-m-4 -mx-4 -mb-10 -mt-4">
                     @foreach ($kendaraan as $row)
-                        <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+                        <div class="max-w-sm rounded overflow-hidden shadow-lg" >
                             <a href="/detail/{{ $row->id_mobil }}/{{ $row->nama_kendaraan }}">
-                                <div class="rounded-lg h-64 overflow-hidden">
-                                    <img alt="content" class="object-cover object-center h-full w-full"
-                                        src="{{ asset('storage/image/kendaraan/' . $row->image) }}">
-                                </div>
+                            <img class="w-full" src="{{ asset('storage/image/kendaraan/' . $row->image) }}">
                             </a>
-                            <a href="/detail/{{ $row->nama_kendaraan }}">
-                                <header class="flex items-center justify-between leading-tight p-2 md:p-4">
-                                    <h1 class="text-lg">
-                                        <a class="no-underline hover:underline text-black" href="#">
-                                            {{ $row->nama_kendaraan }}
-                                        </a>
-                                    </h1>
-                                    <p class="text-grey-darker text-sm">
-                                        Rp. {{ $row->harga_24_jam }} /24jam
-                                    </p>
-                                </header>
-                                <p class="text-base leading-relaxed mt-2">tipe mobil : {{ $row->tipe }}</p>
-                                <p class="text-base leading-relaxed mt-2">kapasitas penumpang : {{ $row->max_penumpang }}
+                            <div class="px-6 py-4">
+                                <div class="font-bold text-xl mb-2">{{ $row->nama_kendaraan }}</div>
+                                <p class="text-gray-700 text-base">
+                                    {!! $row->deskripsi !!}
                                 </p>
-                                <p class="text-base leading-relaxed mt-2">tahun mobil : {{ $row->tahun }}</p>
+                            </div>
+                            <div class="px-6 pt-4 pb-2">
+                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Rp. {{ $row->harga_24_jam }} /24jam</span>
+                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> {{ $row->tahun }}</span>
+                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> kapasitas penumpang : {{ $row->max_penumpang }} orang</span>
+                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> {{ $row->tipe }}</span>  
+                            </div>
                         </div>
-                        </a>
                     @endforeach
+            </div>
                 </div>
             </div>
         </section>

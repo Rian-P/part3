@@ -24,13 +24,30 @@
                         </div>
                     </div>
                     <div class="flex w-full justify-center items-end">
-                        <div class="relative mr-4 lg:w-full xl:w-1/2 w-2/4 md:w-full text-left">
-                            <input type="text" id="hero-field" name="hero-field" placeholder="Cari mobil Disini"
-                                class="w-full bg-gray-100 bg-opacity-50 rounded-lg focus:ring-2 focus:ring-yellow-200 focus:bg-transparent border border-gray-300 focus:border-yellow-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                        <button
-                            class="inline-flex text-white bg-black border-0 py-2 px-6 focus:outline-none rounded-lg text-lg">cari
-                            mobil</button>
+                        <form class="flex items-center" action="{{ route('mobil.search') }}" method="GET">
+
+                            <div class="relative ">
+                                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none ">
+                                    <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.71 19.29L17 15.61C18.4401 13.8144 19.1375 11.5353 18.9488 9.2413C18.7601 6.9473 17.6997 4.81278 15.9855 3.27664C14.2714 1.7405 12.0338 0.919506 9.73295 0.982466C7.43207 1.04543 5.24275 1.98756 3.61517 3.61514C1.98759 5.24272 1.04546 7.43203 0.982497 9.73292C0.919537 12.0338 1.74053 14.2714 3.27667 15.9855C4.81281 17.6997 6.94733 18.7601 9.24133 18.9488C11.5353 19.1375 13.8144 18.4401 15.61 17L19.29 20.68C19.383 20.7737 19.4936 20.8481 19.6154 20.8989C19.7373 20.9497 19.868 20.9758 20 20.9758C20.132 20.9758 20.2627 20.9497 20.3846 20.8989C20.5065 20.8481 20.6171 20.7737 20.71 20.68C20.8903 20.4935 20.991 20.2443 20.991 19.985C20.991 19.7257 20.8903 19.4765 20.71 19.29ZM10 17C8.61556 17 7.26218 16.5895 6.11103 15.8203C4.95989 15.0511 4.06268 13.9579 3.53287 12.6788C3.00306 11.3997 2.86443 9.99223 3.13453 8.63436C3.40463 7.2765 4.07131 6.02922 5.05028 5.05025C6.02925 4.07128 7.27653 3.4046 8.63439 3.1345C9.99226 2.8644 11.3997 3.00303 12.6788 3.53284C13.9579 4.06265 15.0511 4.95986 15.8203 6.111C16.5895 7.26215 17 8.61553 17 10C17 11.8565 16.2625 13.637 14.9498 14.9497C13.637 16.2625 11.8565 17 10 17Z"
+                                            fill="#F2404D" />
+                                    </svg>
+                                </div>
+                                <input type="text" id="simple-search"
+                                    class="bg-background border border-white-300 text-black-900 text-sm rounded-lg focus:ring-black-500  w-full pl-16 pr-10 py-2.5 "
+                                    type="text" name="search" placeholder="Cari mobil..." required>
+    
+                            </div>
+                            <button type="submit"
+                                class="p-2.5 ml-2 text-sm font-medium text-white bg-red-700 rounded-lg border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 ">cari
+                                mobil
+    
+                                <span class="sr-only"></span>
+                            </button>
+                        </form>
+    
                     </div>
                 </div>
             </div>
@@ -60,34 +77,30 @@
 
         <section class="text-gray-600 body-font">
             <div class="container px-5 py-24 mx-auto">
-              <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-                @foreach($kendaraan as $row)
-                <a href="/detail/{{$row->id_mobil}}/{{$row->nama_kendaraan}}">
-                <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-                  <div class="rounded-lg h-64 overflow-hidden">
-                    <img alt="content" class="object-cover object-center h-full w-full" src="{{asset('storage/image/kendaraan/'.$row->image)}}" >
-                  </div>
-                  
-                  <header class="flex items-center justify-between leading-tight p-2 md:p-4">
-                    <h1 class="text-lg">
-                      <a class="no-underline hover:underline text-black" href="#">
-                        {{ $row->nama_kendaraan }}
-                      </a>
-                    </h1>
-                    <p class="text-grey-darker text-sm">
-                     Rp.  {{ $row->harga_24_jam }} /24jam
-                    </p>
-                    
-                  </header>
-                  <p class="text-base leading-relaxed mt-2">tipe mobil : {{ $row->tipe}}</p>
-                  <p class="text-base leading-relaxed mt-2">kapasitas penumpang : {{ $row->max_penumpang }}</p>
-                  <p class="text-base leading-relaxed mt-2">tahun mobil : {{ $row->tahun }}</p>
-                </div>
-            </a>
-                @endforeach
-              </div>
+                <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                    @foreach ($kendaraan as $row)
+                        <div class="max-w-sm rounded overflow-hidden shadow-lg" >
+                            <a href="/detail/{{ $row->id_mobil }}/{{ $row->nama_kendaraan }}">
+                            <img class="w-full" src="{{ asset('storage/image/kendaraan/' . $row->image) }}">
+                            </a>
+                            <div class="px-6 py-4">
+                                <div class="font-bold text-xl mb-2">{{ $row->nama_kendaraan }}</div>
+                                <p class="text-gray-700 text-base">
+                                    {!! $row->deskripsi !!}
+                                </p>
+                            </div>
+                            <div class="px-6 pt-4 pb-2">
+                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Rp. {{ $row->harga_24_jam }} /24jam</span>
+                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> {{ $row->tahun }}</span>
+                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> kapasitas penumpang : {{ $row->max_penumpang }} orang</span>
+                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"> {{ $row->tipe }}</span>  
+                            </div>
+                        </div>
+                    @endforeach
             </div>
-          </section>
+                </div>
+            </div>
+        </section>
 
     </body>
 

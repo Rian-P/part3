@@ -12,7 +12,17 @@ use Illuminate\Http\Request;
 
 class MobilController extends Controller
 {
-   
+    public function search(Request $request)
+    {
+        $keyword = $request->input('search');
+        
+        // Query untuk pencarian mobil berdasarkan keyword
+        $kendaraan = Kendaraan::where('nama_kendaraan', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('tipe', 'LIKE', '%' . $keyword . '%')
+                    ->get();
+        
+                    return view('landing.mobil',compact('kendaraan'));
+    }
    public function index()
    {
       $kendaraan = Kendaraan::all();
@@ -37,7 +47,7 @@ class MobilController extends Controller
         $pemesanan->total_harga = $request->input('total_harga');
         $pemesanan->waktu_ambil = $request->input('waktu_ambil');
         $pemesanan->waktu_kembali = $request->input('waktu_kembali');
-        $pemesanan->status = $request->input('status');
+        $pemesanan->status = null;
         if($request->hasFile('foto_ktp')){
             $file = $request->file('foto_ktp');
             $extention = $file->getClientOriginalExtension();

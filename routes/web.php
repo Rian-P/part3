@@ -24,6 +24,8 @@ Route::group(['middleware' => ['auth','ceklevel:User']], function(){
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/daftar-kendaraan', [MobilController::class, 'index'])->name('mobil.index');
 Route::get('/daftar-mobil', [DetailMobilController::class, 'index'])->name('detail-mobil.index');
+Route::get('/search',[HomeController::class, 'search'])->name('home.search');
+Route::get('/daftar-kendaraan/search', [MobilController::class, 'search'])->name('mobil.search');
 
 Route::get('/detail/{id}/{nama_kendaran}', [MobilController::class, 'show']);
 Route::post('/booking', [MobilController::class, 'store']);
