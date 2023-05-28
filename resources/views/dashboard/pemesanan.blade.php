@@ -63,13 +63,15 @@
                             </td>
                             <td class="font-weight-medium">
                             @if($pemesanan->status == null)
-                             <div class="badge badge-warning">Menunggu Persetujuan</div>
+                             <div class="badge badge-warning">Belum Melakukan Pembayaran</div>
+                            @elseif($pemesanan->status == 1)
+                              <div class="badge badge-success">Menunggu Persetujuan</div>
                             @else
-                              <div class="badge badge-success">Disetujui</div>
+                            <div class="badge badge-success">Disetujui</div>
                             @endif
                             </td>
                             <td>
-                            @if($pemesanan->status == null)
+                            @if($pemesanan->status == 1)
                             <a class="btn btn-success btn-sm upprove" data-id="{{$pemesanan->id_pemesanan}}" data-nama="{{$pemesanan->nama_pelanggan}}"><i class="fa-solid fa-check"></i></a>
                             @else
                               <a href="" class="btn btn-danger btn-sm" ><i class="fa-solid fa-trash-can"></i></a>

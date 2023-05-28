@@ -38,7 +38,7 @@ class PemesananController extends Controller
         $pemesanan->total_harga = $request->input('total_harga');
         $pemesanan->waktu_ambil = $request->input('waktu_ambil');
         $pemesanan->waktu_kembali = $request->input('waktu_kembali');
-        $pemesanan->status = $request->input('status');
+        $pemesanan->status = 2;
         if($request->hasFile('foto_ktp')){
             $file = $request->file('foto_ktp');
             $extention = $file->getClientOriginalExtension();
@@ -62,7 +62,7 @@ public function approve($id){
     $approve =  DB::table('pemesanans')
                 ->where('id_pemesanan', $id)
                 ->update([
-                    'status' => 1
+                    'status' => 2
                 ]);
     return redirect()->back()->with('status','Data Telah Diaprove');
 }
