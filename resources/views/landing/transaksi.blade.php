@@ -18,10 +18,10 @@
                         Mobil
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        waktu pengambilan
+                        Waktu Ambil
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        waktu pengembalian
+                        Waktu Kembali
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Harga
@@ -61,7 +61,7 @@
                     @endif         
                     </td>
                      <td class="px-6 py-4">
-                       <a href="/print/{{$data->id_pemesanan}}">Download Invoice</a>
+                       <a href="/invoice/{{$data->id_pemesanan}}">Download Invoice</a>
                     </td>
                 </tr>
             @endforeach

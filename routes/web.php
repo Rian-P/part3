@@ -16,6 +16,7 @@ use App\http\Controllers\Dashboard\PemesananController;
 use App\http\Controllers\Dashboard\JadwalController;
 
 
+
 Route::group(['middleware' => ['auth','ceklevel:User']], function(){
     Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
 });
@@ -28,6 +29,7 @@ Route::get('/daftar-mobil', [DetailMobilController::class, 'index'])->name('deta
 Route::get('/detail/{id}/{nama_kendaran}', [MobilController::class, 'show']);
 Route::post('/booking', [MobilController::class, 'store']);
 Route::get('/detail/{id}/{nama_kendaran}', [HomeController::class, 'show']);
+Route::get('/invoice/{id_pemesanan}',[JadwalController::class,'kwitansi']);
 
 
 #Login dan Register
